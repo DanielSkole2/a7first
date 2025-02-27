@@ -1,49 +1,49 @@
 namespace Galaga;
 
+using System.Numerics;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using DIKUArcade.GUI;
 using DIKUArcade.Input;
-using System.Numerics;
 
 public class Player : Entity {
 
-    
+
     private float moveLeft = 0.0f;
     private float moveRight = 0.0f;
     private const float MOVEMENT_SPEED = 0.01f;
 
     public Player(DynamicShape shape, IBaseImage image) : base(shape, image) { }
 
-    
+
     private void UpdateVelocity() {
         DynamicShape dynamicShape = Shape as DynamicShape;
         if (dynamicShape != null) {
-            dynamicShape.Velocity = new Vector2(moveRight + moveLeft, 0.0f); 
+            dynamicShape.Velocity = new Vector2(moveRight + moveLeft, 0.0f);
         }
     }
 
-    
+
     public void SetMoveLeft(bool val) {
         if (val) {
-            moveLeft = -MOVEMENT_SPEED;  
+            moveLeft = -MOVEMENT_SPEED;
         } else {
-            moveLeft = 0.0f; 
+            moveLeft = 0.0f;
         }
-        UpdateVelocity();  
+        UpdateVelocity();
     }
 
-    
+
     public void SetMoveRight(bool val) {
         if (val) {
-            moveRight = MOVEMENT_SPEED;  
+            moveRight = MOVEMENT_SPEED;
         } else {
-            moveRight = 0.0f;  
+            moveRight = 0.0f;
         }
-        UpdateVelocity();  
+        UpdateVelocity();
     }
 
-    
+
     public void Move() {
         DynamicShape dynamicShape = Shape as DynamicShape;
         if (dynamicShape != null) {
@@ -70,18 +70,15 @@ public class Player : Entity {
         if (action == KeyboardAction.KeyPress) {
             if (key == KeyboardKey.Left) {
                 SetMoveLeft(true);
-            }
-            else if (key == KeyboardKey.Right) {
+            } else if (key == KeyboardKey.Right) {
                 SetMoveRight(true);
-            }
-            else if (key == KeyboardKey.Space) {
+            } else if (key == KeyboardKey.Space) {
                 // TODO: Fire a shot (implement this in the Game class)
             }
         } else if (action == KeyboardAction.KeyRelease) {
             if (key == KeyboardKey.Left) {
                 SetMoveLeft(false);
-            }
-            else if (key == KeyboardKey.Right) {
+            } else if (key == KeyboardKey.Right) {
                 SetMoveRight(false);
             }
         }
