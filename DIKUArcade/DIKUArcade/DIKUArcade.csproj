@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\**\*.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DIKU.Canvas" Version="2.1.0-alpha1" />
+  </ItemGroup>
+
+</Project>

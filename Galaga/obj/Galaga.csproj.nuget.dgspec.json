@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\Galaga\\Galaga.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\DIKUArcade\\DIKUArcade.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\DIKUArcade\\DIKUArcade.csproj",
+        "projectName": "DIKUArcade",
+        "projectPath": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\DIKUArcade\\DIKUArcade.csproj",
+        "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\DIKUArcade\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\NuGet.Config",
+          "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\local-nuget": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "DIKU.Canvas": {
+              "target": "Package",
+              "version": "[2.1.0-alpha1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.17, 7.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.17, 7.0.17]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.17, 7.0.17]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\Galaga\\Galaga.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\Galaga\\Galaga.csproj",
+        "projectName": "Galaga",
+        "projectPath": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\Galaga\\Galaga.csproj",
+        "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\Galaga\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\DIKUArcade\\DIKUArcade.csproj": {
+                "projectPath": "C:\\Users\\danie\\Desktop\\A4ev\\a4-team-2-group-9-91755e6ba20fa2ce8655eb201d7c7352296f12e6\\DIKUArcade\\DIKUArcade\\DIKUArcade.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.17, 7.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.17, 7.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.17, 7.0.17]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.17, 7.0.17]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
