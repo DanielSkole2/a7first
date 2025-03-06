@@ -69,12 +69,7 @@ public class Game : DIKUGame {
         IterateShots();
 
 
-        foreach (var enemy in enemies) {
-            if (enemy is Enemy e) {
-                float horizontalMovement = (float) Math.Sin(e.Shape.Position.Y * 0.1f) * 0.02f;
-                e.Shape.Position = new Vector2(e.Shape.Position.X + horizontalMovement, e.Shape.Position.Y);
-            }
-        }
+    
 
 
         gameEventBus.ProcessEvents();
