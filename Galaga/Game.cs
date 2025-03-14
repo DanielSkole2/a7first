@@ -1,4 +1,4 @@
-namespace Galaga; 
+namespace Galaga;
 
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using DIKUArcade.GUI;
 using DIKUArcade.Input;
 using DIKUArcade.Physics;
 using DIKUArcade.Timers;
+using Galaga.Hit;
 
 public class Game : DIKUGame {
 
@@ -30,17 +31,27 @@ public class Game : DIKUGame {
             new Image("Galaga.Assets.Images.Player.png")
         );
 
-
         List<Image> images = ImageStride.CreateStrides(4, "Galaga.Assets.Images.BlueMonster.png");
+        List<Image> enragedImages = ImageStride.CreateStrides(4, "Galaga.Assets.Images.RedMonster.png");
         const int numEnemies = 8;
         enemies = new EntityContainer<Enemy>(numEnemies);
         for (int i = 0; i < numEnemies; i++) {
+            IHitStrategy hitStrategy;
+            if (i % 3 == 0) {
+                hitStrategy = new IncreaseSpeed();
+            } else if (i % 3 == 1) {
+                hitStrategy = new Teleport();
+            } else {
+                hitStrategy = new Enrage();
+            }
+
             enemies.AddEntity(new Enemy(
                 new DynamicShape(new Vector2(0.1f + (float) i * 0.1f, 0.9f), new Vector2(0.1f, 0.1f)),
-                new ImageStride(80, images)
+                new ImageStride(80, images),
+                hitStrategy,
+                new ImageStride(80, enragedImages)
             ));
         }
-
 
         playerShots = new EntityContainer<PlayerShot>();
         playerShotImage = new Image("Galaga.Assets.Images.BulletRed2.png");
@@ -51,7 +62,6 @@ public class Game : DIKUGame {
         enemyExplosions = new AnimationContainer(numEnemies);
         explosionStrides = ImageStride.CreateStrides(8, "Galaga.Assets.Images.Explosion.png");
     }
-
 
     ~Game() {
         gameEventBus.Unsubscribe<AddExplosionEvent>(AddExplosion);
@@ -67,11 +77,6 @@ public class Game : DIKUGame {
     public override void Update() {
         player.Move();
         IterateShots();
-
-
-    
-
-
         gameEventBus.ProcessEvents();
     }
 
@@ -88,9 +93,8 @@ public class Game : DIKUGame {
                         var collision = CollisionDetection.Aabb(shotShape, e.Shape);
                         if (collision.Collision) {
                             shot.DeleteEntity();
-                            e.DeleteEntity();
 
-
+                            e.TakeHit();
                             gameEventBus.RegisterEvent(new AddExplosionEvent(e.Shape.Position, new Vector2(0.1f, 0.1f)));
                         }
                     }
@@ -99,9 +103,7 @@ public class Game : DIKUGame {
         });
     }
 
-
     public void AddExplosion(AddExplosionEvent addExplosionEvent) {
-
         var explosionShape = new StationaryShape(addExplosionEvent.Position, addExplosionEvent.Extent);
         var explosionAnimation = new ImageStride(EXPLOSION_LENGTH_MS / 8, explosionStrides);
         enemyExplosions.AddAnimation(explosionShape, EXPLOSION_LENGTH_MS, explosionAnimation);
@@ -111,18 +113,14 @@ public class Game : DIKUGame {
         player.KeyHandler(action, key);
 
         if (action == KeyboardAction.KeyRelease && key == KeyboardKey.Space) {
-
             Vector2 shotPosition = new Vector2(player.GetPosition().X + 0.045f, player.GetPosition().Y + 0.05f);
             playerShots.AddEntity(new PlayerShot(shotPosition, playerShotImage));
         }
     }
 }
 
-
 public class EnemyExplosion : Entity {
     public EnemyExplosion(StationaryShape shape, ImageStride animation)
         : base(shape, animation) {
     }
-
-
 }

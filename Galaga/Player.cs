@@ -59,13 +59,13 @@ public class Player : Entity {
         }
     }
 
-    // Method to return the player's position
+
     public Vector2 GetPosition() {
         DynamicShape dynamicShape = Shape as DynamicShape;
         return dynamicShape?.Position ?? Vector2.Zero;
     }
 
-    // KeyHandler method to handle keyboard input
+
     public void KeyHandler(KeyboardAction action, KeyboardKey key) {
         if (action == KeyboardAction.KeyPress) {
             if (key == KeyboardKey.Left) {
@@ -73,7 +73,7 @@ public class Player : Entity {
             } else if (key == KeyboardKey.Right) {
                 SetMoveRight(true);
             } else if (key == KeyboardKey.Space) {
-                // TODO: Fire a shot (implement this in the Game class)
+
             }
         } else if (action == KeyboardAction.KeyRelease) {
             if (key == KeyboardKey.Left) {
