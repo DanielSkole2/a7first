@@ -5,20 +5,24 @@ using System.Numerics;
 using DIKUArcade.Entities;
 using DIKUArcade.Graphics;
 using Galaga.Hit;
+using Galaga.Movement;
 
 public class Enemy : Entity {
 
     private IHitStrategy hitStrategy;
+    private IMovementStrategy movementStrategy;
     private int hitpoints;
     private IBaseImage normalImage;
     private IBaseImage enragedImage;
     private bool isEnraged = false;
 
-    public Enemy(DynamicShape shape, IBaseImage image, IHitStrategy hitStrategy, IBaseImage enragedImage) : base(shape, image) {
+    public Enemy(DynamicShape shape, IBaseImage image, IHitStrategy hitStrategy, IBaseImage enragedImage, IMovementStrategy movementStrategy) 
+        : base(shape, image) {
         this.hitStrategy = hitStrategy;
         this.hitpoints = 3;
         this.normalImage = image;
         this.enragedImage = enragedImage;
+        this.movementStrategy = movementStrategy;
     }
 
     public void TakeHit() {
@@ -45,8 +49,8 @@ public class Enemy : Entity {
 
     public void Teleport(float minX, float maxX, float minY, float maxY) {
         Random random = new Random();
-        float newX = (float) (random.NextDouble() * (maxX - minX) + minX);
-        float newY = (float) (random.NextDouble() * (maxY - minY) + minY);
+        float newX = (float)(random.NextDouble() * (maxX - minX) + minX);
+        float newY = (float)(random.NextDouble() * (maxY - minY) + minY);
         Shape.Position = new Vector2(newX, newY);
     }
 
@@ -60,5 +64,15 @@ public class Enemy : Entity {
 
     public void ResetImage() {
         Image = normalImage;
+    }
+
+    
+    public void Update() {
+        movementStrategy.Move(this); 
+    }
+
+    
+    public void ScaleMovement(float factor) {
+        movementStrategy.Scale(factor); 
     }
 }
